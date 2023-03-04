@@ -80,11 +80,27 @@ dodajEl.addEventListener("click", function () {
     console.log(kolorR, kolorG, kolorB);
     const kolorSzesnastkowy = "#" + kolorR.toString(16) + kolorG.toString(16) + kolorB.toString(16);
     nowyElement.style.backgroundColor = kolorSzesnastkowy;
+    nowyElement.addEventListener("click", function (evt) {
+        console.log('klinieto na span-ie', evt);
+
+        //zmiana inner tkstu elementu w ktory kliknieto:
+        //evt.target.innerText='trafiony!';
+        
+        //usuwanie lementu na ktory kliknieto:
+        //evt.target.remove();
+
+        // usuwanie poprzednika:
+        if (evt.target.previousElementSibling) {
+            evt.target.previousElementSibling.remove();
+        }
+    });
     //nowyElement.style.
     // backgroung-color => backgroundColor
     // padding => padding
     // margin-top => marginTop
     // font-family => fontFamily
+
+    //DO PKAZANIA - removeChild(), insertBefore() - zamiana
 });
 
 
