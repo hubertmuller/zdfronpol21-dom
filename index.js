@@ -37,6 +37,15 @@ przyciskDel.addEventListener("click", function () {
     el.removeAttribute("class");
 });
 
-//.getAttribute
+const hasloWidget = document.getElementsByName("haslo")[0];
+hasloWidget.addEventListener("keyup", function () { 
+    console.log('nacisnieto klawisz');
+    //.getAttribute
+    //const obecnaWartosc = hasloWidget.getAttribute("value");
+    const komplikacja = hasloWidget.value.length;
+    console.log('komplikacja ' + komplikacja);
+});
+
+
 
 
