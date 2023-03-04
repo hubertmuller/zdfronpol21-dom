@@ -22,6 +22,21 @@ console.log('element o name=nazwisko ma nastepujace atrybuty', el.attributes);
 const maType = el.hasAttribute("type");
 console.log('element o name=nazwisko ' + (maType?' ma atrybut type':'nie ma atrybutu type') );
 
+const przyciskSet = document.getElementById("set");
+const przyciskDel = document.getElementById("del");
+
+przyciskSet.addEventListener("click", function () { 
+    console.log('kliknieto na set');
+    //.setAttribute
+    el.setAttribute("class","wazne");
+});
+
+przyciskDel.addEventListener("click", function () { 
+    console.log('kliknieto na del');
+    //.removeAttribute
+    el.removeAttribute("class");
+});
+
 //.getAttribute
-//.setAttribute
-//.removeAttribute
+
+
