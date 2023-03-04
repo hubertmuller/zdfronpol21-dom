@@ -64,6 +64,27 @@ hasloWidget.addEventListener("keyup", function () {
 
 });
 
+const dodajEl = document.getElementsByName("dodaj")[0];
 
+dodajEl.addEventListener("click", function () {
+    const kontener = document.getElementById("kontener");
+    const nowyElement = document.createElement("span");
+    nowyElement.innerText = 'nowyspan id='+Math.floor((Math.random()*100));
+    // bardziej uniwersalny - drugi parametr wskazuje na dziecko przed ktorym dodac element
+    kontener.insertBefore(nowyElement, kontener.firstChild);
+    // mniej uniwersalny - zawsze doda na koncu
+    //kontener.appendChild(nowyElement);
+    const kolorR = 127 + Math.floor((Math.random()*128));
+    const kolorG = 16 + Math.floor((Math.random()*128));
+    const kolorB = 16 + Math.floor((Math.random()*128));
+    console.log(kolorR, kolorG, kolorB);
+    const kolorSzesnastkowy = "#" + kolorR.toString(16) + kolorG.toString(16) + kolorB.toString(16);
+    nowyElement.style.backgroundColor = kolorSzesnastkowy;
+    //nowyElement.style.
+    // backgroung-color => backgroundColor
+    // padding => padding
+    // margin-top => marginTop
+    // font-family => fontFamily
+});
 
 
