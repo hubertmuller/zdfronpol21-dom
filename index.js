@@ -26,7 +26,7 @@ const przyciskSet = document.getElementById("set");
 const przyciskDel = document.getElementById("del");
 
 przyciskSet.addEventListener("click", function () { 
-    console.log('kliknieto na set');
+    //console.log('kliknieto na set');
     //.setAttribute
     el.setAttribute("class","wazne");
 });
@@ -38,6 +38,7 @@ przyciskDel.addEventListener("click", function () {
 });
 
 const hasloWidget = document.getElementsByName("haslo")[0];
+const sila = document.getElementById("sila");
 hasloWidget.addEventListener("keyup", function () { 
     console.log('nacisnieto klawisz');
     //.getAttribute
@@ -59,6 +60,8 @@ hasloWidget.addEventListener("keyup", function () {
     } 
     console.log('komplikacja=' + komplikacja);
     hasloWidget.setAttribute("class", kolor);
+    sila.innerText = "sila hasła=" + komplikacja;
+
 });
 
 
