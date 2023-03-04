@@ -43,7 +43,7 @@ hasloWidget.addEventListener("keyup", function () {
     //.getAttribute
     //const obecnaWartosc = hasloWidget.getAttribute("value");
     const komplikacja = hasloWidget.value.length / 8 ;
-    let kolor = "weak";
+    let kolor = "extra";
     if (komplikacja < 0.25) {
         kolor = "weak";
     } else if (komplikacja < 0.5) {
@@ -56,9 +56,7 @@ hasloWidget.addEventListener("keyup", function () {
         kolor = "ok";
     } else if (komplikacja < 2) {
         kolor = "super";
-    } else {
-        kolor = "extra";
-    }
+    } 
     console.log('komplikacja=' + komplikacja);
     hasloWidget.setAttribute("class", kolor);
 });
