@@ -1,3 +1,31 @@
+function rysujWykres(element, s1, s2) {
+    const dzieci = element.children;
+    for(let i=0;i<element.children;i++) {
+        element.children[i].remove;
+    }
+    const slupek1 = zrobElement("div","");
+    const slupek2 = zrobElement("div","");
+    slupek1.style.width = '20px';
+    slupek2.style.width = '20px';
+    slupek1.style.display = 'inline-block';
+    slupek2.style.display = 'inline-block';
+    slupek1.style.backgroundColor = "#ff0000";
+    slupek2.style.backgroundColor = "#00ff00";
+    element.appendChild(slupek1);
+    element.appendChild(slupek2);
+
+    const wysokoscWykresu = element.getBoundingClientRect().height;
+    let max = s1;
+    if (s1 < s2) {
+        max = s2;
+    }
+
+    const wspolczynnik = wysokoscWykresu/max;
+
+    slupek1.style.height = (s1 * wspolczynnik) + "px";
+    slupek2.style.height = (s2 * wspolczynnik) + "px";
+}
+
 function znajdzElementy(selektor) {
     return document.querySelectorAll(selektor);
 }
@@ -85,4 +113,4 @@ dodaj.addEventListener("click", () => {
     }
 })
 
-
+rysujWykres(document.getElementById("wykres"), 0.400, 0.23);
