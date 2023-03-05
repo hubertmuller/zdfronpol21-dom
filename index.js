@@ -91,7 +91,9 @@ dodajEl.addEventListener("click", function () {
 
         // usuwanie poprzednika:
         if (evt.target.previousElementSibling) {
-            evt.target.previousElementSibling.remove();
+            evt.target.previousElementSibling.removeEventListener();
+            console.log('usuwam', evt.target.previousElementSibling);
+            //evt.target.previousElementSibling.remove();
         }
     });
     //nowyElement.style.
@@ -103,4 +105,22 @@ dodajEl.addEventListener("click", function () {
     //DO PKAZANIA - removeChild(), insertBefore() - zamiana
 });
 
+document.getElementById("powierzchniaTestowa").addEventListener("mouseenter" , function () {
+    console.log("mouseenter");
+});
 
+document.getElementById("powierzchniaTestowa").addEventListener("mouseout" , function () {
+    console.log("mouseout");
+})
+
+document.getElementById("powierzchniaTestowa").addEventListener("mousemove" , function () {
+    console.log("mousemove");
+})
+
+document.getElementById("powierzchniaTestowa").addEventListener("mouseleave" , function () {
+    console.log("mouseleave");
+})
+
+document.getElementById("powierzchniaTestowa").addEventListener("mouseover" , function () {
+    console.log("mouseover");
+})
