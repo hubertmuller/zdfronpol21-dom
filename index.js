@@ -112,16 +112,16 @@ dodajEl.addEventListener("click", function () {
         console.log('klinieto na span-ie', evt);
 
         //zmiana inner tkstu elementu w ktory kliknieto:
-        //evt.target.innerText='trafiony!';
+        evt.target.innerText='trafiony!';
         
-        //usuwanie lementu na ktory kliknieto:
+        //usuwanie elementu na ktory kliknieto:
         //evt.target.remove();
 
         // usuwanie poprzednika:
-        if (evt.target.previousElementSibling) {
+        /*if (evt.target.previousElementSibling) {
             console.log('usuwam poprzednika:', evt.target.previousElementSibling);
             evt.target.previousElementSibling.remove();
-        }
+        }*/
     });
     
     //nowyElement.style.
@@ -155,7 +155,10 @@ document.getElementById("powierzchniaTestowa").addEventListener("mouseover" , fu
 
 function biezacyCzas() {
     const teraz = new Date();
-    return teraz.getHours() + ":" + teraz.getMinutes() + ":" + teraz.getSeconds();
+    const iloscPozycji = 2;
+    return formatuj(teraz.getHours(),iloscPozycji) + 
+    ":" + formatuj(teraz.getMinutes(),iloscPozycji) + ":" + 
+    formatuj(teraz.getSeconds(),iloscPozycji);
 }
 
 const zegarekDiv = document.getElementById("zegarek");
@@ -164,8 +167,11 @@ let uchwytInterval = window.setInterval(function() {
     zegarekDiv.innerText = biezacyCzas();
 }, 1000);
 
+//setTimeout - w odroznieniu do setInterval odpala funkcję tylko raz po uplywie zsdanego czasu
+
 document.getElementById("zegarstop").onclick = function () {
     window.clearInterval(uchwytInterval);
+    //window.clearTimeout - dla setTimeout
 };
 
 document.getElementById("zegarstart").onclick = function () {
@@ -174,5 +180,13 @@ document.getElementById("zegarstart").onclick = function () {
     }, 1000);
 };
 
+function formatuj(liczba, iloscPozycji) {
+    const liczbaLancuch = liczba.toString(10);
+    const dlugoscLiczby = liczbaLancuch.length;
+    const iloscZer = iloscPozycji - dlugoscLiczby;
+    const zero = "0";
+    const wynik = zero.repeat(iloscZer) + liczbaLancuch;
+    return wynik;
+} 
 
 
