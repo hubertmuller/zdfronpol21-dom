@@ -6,10 +6,13 @@ function znajdzElement(selektor) {
     return document.querySelector(selektor);
 }
 
-function zrobElement(nazwa,tekst) {
+function zrobElement(nazwa,tekst,opcje = {}) {
     const element = document.createElement(nazwa);
     element.innerText=tekst;
-    return element
+    if (opcje) {
+        element.setAttribute(opcje.nazwaAtr, opcje.wartoscAtr);
+    }
+    return element;
 }
 
 function pokazKomunikat(tekst, waga) {
@@ -50,7 +53,7 @@ dodaj.addEventListener("click", () => {
         //Twprzenie przyciskow dodawany do <li>
         const elUsun = zrobElement("button","usun");
         const elGora = zrobElement("button","w górę");
-        const elGotowe = zrobElement("button","zrobione");
+        const elGotowe = zrobElement("input","zrobione", {nazwaAtr: 'type', wartoscAtr: 'checkbox'});
         //dodawanie elementu li do ul
         lista.appendChild(elLi);
         //dodawanie przyciskow (appendchild)
@@ -61,7 +64,13 @@ dodaj.addEventListener("click", () => {
             evt.target.parentElement.remove();
         }
         elGotowe.onclick = (evt) => {
-            evt.target.parentElement.style.textDecoration = "line-through";
+            const stan = evt.target.checked;
+            if (stan == true) {
+                evt.target.parentElement.style.textDecoration = "line-through";
+            } else {
+                evt.target.parentElement.style.textDecoration = "none";
+            }
+            
         }
         elGora.onclick = (evt) => {
             const liKlikniete = evt.target.parentElement;
