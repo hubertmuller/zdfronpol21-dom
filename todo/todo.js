@@ -12,17 +12,31 @@ function zrobElement(nazwa,tekst) {
     return element
 }
 
+function pokazKomunikat(tekst) {
+    const potwierdzenie = zrobElement('div', tekst);
+    for (let i=0 ; i<bledy.children.length; i++){
+        bledy.children[i].remove();
+    }
+    bledy.appendChild(potwierdzenie);
+}
+
 const lista = znajdzElement("ul");
 const dodaj = znajdzElement("button");
 const input = znajdzElement("input[name='rzecz']");
 
 dodaj.addEventListener("click", () => {
     const rzecz = input.value;
-    input.value = "";
-    const elLi = zrobElement("li", rzecz);
-    const elUsun = zrobElement("button","usun");
-    lista.appendChild(elLi);
-    elLi.appendChild(elUsun);
+    if (input.value !== ""){
+        input.value = "";
+        const elLi = zrobElement("li", rzecz);
+        const elUsun = zrobElement("button","usun");
+        lista.appendChild(elLi);
+        elLi.appendChild(elUsun);
+        pokazKomunikat('dodano czynnosc');
+    }
+    else {
+        pokazKomunikat('nie można dodoać pustego pola');
+    }
 })
 
 
