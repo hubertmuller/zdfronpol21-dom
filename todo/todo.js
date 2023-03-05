@@ -20,7 +20,9 @@ dodaj.addEventListener("click", () => {
     const rzecz = input.value;
     input.value = "";
     const elLi = zrobElement("li", rzecz);
+    const elUsun = zrobElement("button","usun");
     lista.appendChild(elLi);
+    elLi.appendChild(elUsun);
 })
 
 
