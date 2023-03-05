@@ -107,7 +107,7 @@ dodajEl.addEventListener("click", function () {
     console.log(kolorR, kolorG, kolorB);
     const kolorSzesnastkowy = "#" + kolorR.toString(16) + kolorG.toString(16) + kolorB.toString(16);
     nowyElement.style.backgroundColor = kolorSzesnastkowy;
-    /*
+    
     nowyElement.addEventListener("click", function (evt) {
         console.log('klinieto na span-ie', evt);
 
@@ -119,19 +119,18 @@ dodajEl.addEventListener("click", function () {
 
         // usuwanie poprzednika:
         if (evt.target.previousElementSibling) {
-            evt.target.previousElementSibling.removeEventListener();
-            console.log('usuwam', evt.target.previousElementSibling);
-            //evt.target.previousElementSibling.remove();
+            console.log('usuwam poprzednika:', evt.target.previousElementSibling);
+            evt.target.previousElementSibling.remove();
         }
     });
-    */
+    
     //nowyElement.style.
     // backgroung-color => backgroundColor
     // padding => padding
     // margin-top => marginTop
     // font-family => fontFamily
 
-    //DO PKAZANIA - removeChild(), insertBefore() - zamiana
+    //DO POKAZANIA - removeChild(), insertBefore() - zamiana
 });
 
 document.getElementById("powierzchniaTestowa").addEventListener("mouseenter" , function () {
@@ -153,3 +152,27 @@ document.getElementById("powierzchniaTestowa").addEventListener("mouseleave" , f
 document.getElementById("powierzchniaTestowa").addEventListener("mouseover" , function () {
     console.log("mouseover");
 })
+
+function biezacyCzas() {
+    const teraz = new Date();
+    return teraz.getHours() + ":" + teraz.getMinutes() + ":" + teraz.getSeconds();
+}
+
+const zegarekDiv = document.getElementById("zegarek");
+
+let uchwytInterval = window.setInterval(function() {
+    zegarekDiv.innerText = biezacyCzas();
+}, 1000);
+
+document.getElementById("zegarstop").onclick = function () {
+    window.clearInterval(uchwytInterval);
+};
+
+document.getElementById("zegarstart").onclick = function () {
+    uchwytInterval = window.setInterval(function() {
+        zegarekDiv.innerText = biezacyCzas();
+    }, 1000);
+};
+
+
+

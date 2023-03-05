@@ -52,11 +52,26 @@
             height: 200px;
             background-color: blue;
         }
+
+        #zegarstop, #zegarstart {
+            padding: 10px;
+            margin: 5px;
+            background-color: rgb(255, 255, 255);
+            display: inline-block;
+            cursor: pointer;
+        }
+        #zegarstop:hover, #zegarstart:hover {
+            background-color: red;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     
 <h3 id="element3">naglowek</h3>
+<div id="zegarek"></div>
+<div id="zegarstop">Zatrzymaj zegar</div>
+<div id="zegarstart">wznów zegar</div>
 
 <p>
     <span class="tekscik">
