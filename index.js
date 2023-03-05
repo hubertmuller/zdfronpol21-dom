@@ -66,6 +66,33 @@ hasloWidget.addEventListener("keyup", function () {
 
 const dodajEl = document.getElementsByName("dodaj")[0];
 
+/*
+
+//Przykład optymalizacji ilosci event listenenerow. Wykorzystujemy technike event bubblingu.
+//Czyli element nasluchujacy dostanei od swoich dzieci informacje o zajsciu zdarzenia
+//a nastepnie dzieki evt.target.tagName mozemy rozpoznac na jakiego typu dziecku zaszlo zdarzenie
+//i podjac odpowiednia decyzje
+
+document.getElementById("kontener").addEventListener("click", function(evt) {
+    //console.log(evt.target.tagName);
+    if (evt.target.tagName == 'SPAN') {
+        evt.target.innerText = 'trafiony';
+        evt.target.style.backgroundColor="#444444";
+    }
+
+});
+*/
+
+/*
+Alternatywna metoda rejestrowania event handlera:
+
+document.getElementById("kontener").onclick = function (evt) {
+    //postepowanie wewnatrz funkcji obslugujacej jak w przypadku addEventListener
+}
+*/
+
+
+
 dodajEl.addEventListener("click", function () {
     const kontener = document.getElementById("kontener");
     const nowyElement = document.createElement("span");
@@ -80,6 +107,7 @@ dodajEl.addEventListener("click", function () {
     console.log(kolorR, kolorG, kolorB);
     const kolorSzesnastkowy = "#" + kolorR.toString(16) + kolorG.toString(16) + kolorB.toString(16);
     nowyElement.style.backgroundColor = kolorSzesnastkowy;
+    /*
     nowyElement.addEventListener("click", function (evt) {
         console.log('klinieto na span-ie', evt);
 
@@ -96,6 +124,7 @@ dodajEl.addEventListener("click", function () {
             //evt.target.previousElementSibling.remove();
         }
     });
+    */
     //nowyElement.style.
     // backgroung-color => backgroundColor
     // padding => padding
